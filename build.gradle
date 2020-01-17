@@ -1,0 +1,39 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.10.1'
+}
+
+group 'com.guidovezzoni.greeting'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+gradlePlugin {
+    plugins {
+        greetingsPlugin {
+            id = 'com.guidovezzoni.greeting'
+            version = '1.0.0'
+            displayName = "Greeting Plugin"
+            description = "Template for people to start their own plugin adventure"
+            implementationClass = 'com.guidovezzoni.greeting.GreetingPlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = "https://github.com/guidovezzoni"
+    vcsUrl = "https://github.com/guidovezzoni"
+    tags = ['example', 'template']
+}
+
